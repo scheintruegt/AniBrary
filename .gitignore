@@ -1,0 +1,11 @@
+@"
+node_modules/
+dist/
+out/
+release/
+.cache/
+*.log
+.env
+.env.*
+!.env.example
+"@ | Set-Content .gitignore

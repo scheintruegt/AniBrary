@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' file:; style-src 'self'; script-src 'self'; img-src 'self' data: https:; media-src 'self' file: blob:;">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AniBrary</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">▶</span><span>AniBrary</span></div>
+    <nav>
+      <button class="nav-item" data-page="library"><span>▥</span>Library</button>
+      <button class="nav-item active" data-page="discover"><span>⌕</span>Discover</button>
+      <button class="nav-item" data-page="downloads"><span>⇩</span>Downloads <b id="download-count">0</b></button>
+      <button class="nav-item" data-page="settings"><span>⚙</span>Settings</button>
+    </nav>
+    
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><h1 id="page-title">Discover</h1><p id="page-subtitle" class="hidden"></p></div><div class="top-actions"><span class="status-dot"></span><span id="connection-status">Ready</span></div></header>
+
+    <section id="page-discover" class="page">
+      <form id="search-form" class="search-row">
+        <label class="searchbox"><span>⌕</span><input id="search-input" placeholder="Search anime releases…" autocomplete="off"><button type="button" id="clear-search" aria-label="Clear search">×</button></label>
+        <button class="btn primary" type="submit">Search releases</button>
+      </form>
+      <div class="filter-row">
+        <select id="quality-filter" aria-label="Quality"><option value="">All quality</option><option>1080p</option><option>720p</option><option>480p</option><option>2160p</option></select>
+        <select id="sort-filter" aria-label="Sort"><option value="date">Newest first</option><option value="size">Largest first</option><option value="title">Title A–Z</option></select>
+        <span class="source-pill"><span class="status-dot"></span> AnimeTosho feed</span>
+      </div>
+      <div class="results-head"><span id="results-summary">Search for a title to see releases</span><span id="results-page"></span></div>
+      <div id="notice" class="notice hidden"></div>
+      <div id="results" class="results empty-state">
+        <div class="empty-icon">⌕</div><h2>Search</h2><p></p>
+        <div class="suggestions"><button class="suggestion">Frieren</button><button class="suggestion">Cowboy Bebop</button><button class="suggestion">Public domain animation</button></div>
+      </div>
+    </section>
+
+    <section id="page-library" class="page hidden">
+      <div class="library-hero">
+        <div class="library-hero-copy"><h2>Library</h2></div>
+        <button id="pick-video" class="btn secondary">＋ Open video</button>
+      </div>
+      <div class="library-toolbar"><div><span id="library-breadcrumb">OpenReel</span><span id="library-count" class="library-count"></span></div><div class="library-tools"><button id="library-back" class="btn secondary hidden">← Back</button><button id="library-refresh" class="btn secondary">Refresh</button><button id="library-open-folder" class="btn secondary">Open folder</button></div></div>
+      <div id="library-list" class="library-grid"></div>
+      <div id="library-empty" class="library-empty hidden"><div class="empty-icon">▦</div><h2>Empty</h2><p></p></div>
+    </section>
+
+    <section id="page-downloads" class="page hidden">
+      <div class="section-head"><div><h2>Download queue</h2></div><button id="open-folder" class="btn secondary">Open download folder</button></div>
+      <form id="magnet-form" class="magnet-form"><input id="magnet-input" placeholder="Paste a magnet link or direct .torrent URL" autocomplete="off"><button class="btn primary" type="submit">＋ Add torrent</button></form>
+      <div id="downloads-list" class="downloads-list"></div>
+      
+    </section>
+
+    <section id="page-settings" class="page hidden">
+      <div class="settings-card"><h2>Settings</h2><div class="setting-row"><div><b>Download location</b><p id="download-location">Loading…</p></div><button id="settings-folder" class="btn secondary">Open folder</button></div><div class="setting-row"><div><b>Catalog source</b><p>AnimeTosho JSON feed · queried directly from the app.</p></div><span class="source-pill">Background search</span></div><div class="setting-row"><div><b>Catalog availability</b><p>The legacy feed may be offline or incomplete. Errors are shown here instead of opening a browser.</p></div></div></div>
+    </section>
+  </main>
+  <div id="toast" class="toast hidden"></div>
+  <script src="renderer.js"></script>
+</body>
+</html>

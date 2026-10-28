@@ -1,0 +1,42 @@
+{
+  "name": "anibrary",
+  "version": "0.17.0",
+  "description": "Minimal desktop anime library with background catalog search and local playback.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "webtorrent": "1.9.7",
+    "parse-torrent": "9.1.5",
+    "ffmpeg-static": "^5.2.0"
+  },
+  "devDependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "app.anibrary.desktop",
+    "productName": "AniBrary",
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "icon": "assets/anibrary.ico"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  },
+  "productName": "AniBrary"
+}
