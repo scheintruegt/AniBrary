@@ -2,6 +2,9 @@
 
 AniBrary is a minimal Electron desktop media library with background catalog search, torrent queue management, and local video playback.
 
+## Known Errors
+- We (me and chatgpt) are currently fixing the remove, pause and resume buttons for downloads.
+
 ## Features
 - Search the AnimeTosho JSON feed from inside the app (no browser window is opened).
 - Filter search results by resolution and sort by date, size, or title.
