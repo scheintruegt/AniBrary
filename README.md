@@ -1,6 +1,6 @@
-# Open Reel
+# AniBrary
 
-Open Reel is a minimal Electron desktop media library with background catalog search, torrent queue management, and local video playback.
+AniBrary is a minimal Electron desktop media library with background catalog search, torrent queue management, and local video playback.
 
 ## Features
 - Search the AnimeTosho JSON feed from inside the app (no browser window is opened).
